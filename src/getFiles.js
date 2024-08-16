@@ -1,5 +1,5 @@
 export async function getFiles(dataTransfer) {
-  const fileList = {}
+  const fileDict = {}
   const items = dataTransfer.items
 
   for (const item of items) {
@@ -26,8 +26,8 @@ export async function getFiles(dataTransfer) {
         }
       }
     }
-    await loop(entry, fileList)
+    await loop(entry, fileDict)
   }
 
-  return fileList
+  return fileDict
 }

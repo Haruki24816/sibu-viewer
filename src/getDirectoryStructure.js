@@ -1,5 +1,5 @@
-export async function getFiles(dataTransfer) {
-  const fileDict = {}
+export async function getDirectoryStructure(dataTransfer) {
+  const structure = {}
   const items = dataTransfer.items
 
   for (const item of items) {
@@ -26,8 +26,8 @@ export async function getFiles(dataTransfer) {
         }
       }
     }
-    await loop(entry, fileDict)
+    await loop(entry, structure)
   }
 
-  return fileDict
+  return structure
 }

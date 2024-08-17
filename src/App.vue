@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue"
-import { getFiles } from "./getFiles"
+import { getDirectoryStructure } from "./getDirectoryStructure"
 import { store } from "./store"
 import LibrarySide from "./LibrarySide.vue"
 
@@ -9,8 +9,8 @@ const libraryDisplay = ref("right") // full, left, right, none
 async function onDrop(event) {
   event.preventDefault()
   event.stopPropagation()
-  const fileDict = await getFiles(event.dataTransfer)
-  store.loadFolders(fileDict)
+  const structure = await getDirectoryStructure(event.dataTransfer)
+  store.loadFolders(structure)
 }
 </script>
 
